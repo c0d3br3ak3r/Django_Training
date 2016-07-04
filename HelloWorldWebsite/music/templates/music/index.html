@@ -1,0 +1,10 @@
+<html>
+{% if all_albs %}
+  {% for alb in all_albs %}
+  <a href="/music/{{ alb.id }}/"> {{ alb.album_title }} </a>
+  <br/>
+  {% endfor %}
+{%else %}
+  <h1> You don't have any data here</h1>
+{% endif %}
+</html>
