@@ -3,12 +3,30 @@
 <p>Genre : {{ curr_album.genre }}</p>
 Songs :
 <br/>
-<ul>
+
 {% if curr_album.song_set.all %}
-  {% for song in curr_album.song_set.all %}
-    <li>{{ song.song_title }}{{ song_title.filetype }}</li>
-  {% endfor %}
+  {% if error_message %}
+  <p style="color:red"><strong> {{ error_message }}</strong></p>
+  {% endif %}
+  <form method="POST" action="{% url 'music:favourite' curr_album.id %}">
+    {% csrf_token %} <!--To avoid cross site scripting SECURITY-->
+    <ul>
+    {% for song in curr_album.song_set.all %}
+      <!--<li>{{ song.song_title }}{{ song.filetype }}</li>-->
+      <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}"/>
+      <label for="song{{ forloop.counter }}">
+        {{ song.song_title }}
+        {% if song.isFavorite %}
+          *
+        {% endif %}
+      </label>
+      <br/>
+    {% endfor %}
+    </ul>
+    <input type="submit" value="Make favourite" />
+  </form>
+
+
 {%else%}
   No songs yet.
 {%endif%}
-</ul>

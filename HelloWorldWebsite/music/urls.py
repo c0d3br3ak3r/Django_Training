@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^$', views.hello, name='helloname'),
 
     #/music/id
-    url(r'^(?P<album_id>[0-9]*)/$', views.detail, name='detail' ) #Note that the / is required at the end.
+    url(r'^(?P<album_id>[0-9]*)/$', views.detail, name='detail' ), #Note that the / is required at the end.
+
+    #/music/id/favourite
+    url(r'^(?P<album_id>[0-9]*)/favourite/$', views.makeFav, name='favourite' ), #Note that the / is required at the end.
 
 ]
