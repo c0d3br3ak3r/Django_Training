@@ -3,6 +3,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from . import views
 
+app_name = 'music'
+
 urlpatterns = [
     # /music/
     url(r'^$', views.hello, name='helloname'),

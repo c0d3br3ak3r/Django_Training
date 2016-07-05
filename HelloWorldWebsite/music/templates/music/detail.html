@@ -1,1 +1,14 @@
-{{ album_title }}
+<h1>{{ curr_album.album_title }}</h1>
+<p>Artist : {{ curr_album.artist}}</p>
+<p>Genre : {{ curr_album.genre }}</p>
+Songs :
+<br/>
+<ul>
+{% if curr_album.song_set.all %}
+  {% for song in curr_album.song_set.all %}
+    <li>{{ song.song_title }}{{ song_title.filetype }}</li>
+  {% endfor %}
+{%else%}
+  No songs yet.
+{%endif%}
+</ul>

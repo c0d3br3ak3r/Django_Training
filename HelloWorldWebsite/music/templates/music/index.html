@@ -1,7 +1,9 @@
 <html>
+<h1> All Albums : </h1>
 {% if all_albs %}
   {% for alb in all_albs %}
-  <a href="/music/{{ alb.id }}/"> {{ alb.album_title }} </a>
+  <!-- <a href="/music/{{ alb.id }}/"> {{ alb.album_title }} </a> -->
+  Go to <a href=" {% url 'music:detail' alb.id %} ">{{ alb.album_title }} </a>
   <br/>
   {% endfor %}
 {%else %}

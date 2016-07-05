@@ -22,5 +22,5 @@ def detail(request, album_id):
         curr_album = Album.objects.get(pk=album_id)
     except:
         raise Http404("Oops! Not Found ! Better luck next time.") #returning 404 when no such album exists
-        
-    return render(request, "music/detail.html", { 'album_title' : curr_album.album_title })
+
+    return render(request, "music/detail.html", { 'curr_album' : curr_album })
