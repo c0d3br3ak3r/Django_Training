@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Soccer City</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.css" />
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Soccer City</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="#bookings">Bookings</a></li>
+								<li><a href="#ourservices">Services</a></li>
+								<li><a href="#gallery">Gallery</a></li>
+								<li><a href="#footer">About Us</a></li>
+								<li><a href="##" onClick="directions()">Directions</a></li>
+								<!--<li><a href="#">Sign Up</a></li>-->
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+								<a href="#" class="image"><img src="{% static 'images/logo.jpg' %}" alt="" /></a>
+							<h2>Soccer City</h2>
+							<p>
+								We provide the best in class turf fields in Hyderabad.<br/>
+								Turfside is Hyderabad’s first and largest five a side football field with a state of the art infrastructure & international quality artificial turf standards. It is an open space in the heart of the city. <br/>
+								Pay & Play bookings can be made through our website booking URL or you can call us on +919949774430.<br/>
+								For tournaments & leagues, football coaching, & special events bookings please write to us at info@turfside.in or call us on +919949774430<br/>
+							</p>
+						</div>
+					</section>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<section id="ourservices" class="wrapper alt style1">
+							<div class="inner">
+								<h2 class="major">Our Services</h2>
+								<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+								<section class="features">
+									<article>
+										<a href="#" class="image"><img src="{% static 'images/pic04.jpg' %}" alt="" /></a>
+										<h3 class="major">Sed feugiat lorem</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+										<a href="#" class="special">Learn more</a>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="{% static 'images/pic05.jpg' %}" alt="" /></a>
+										<h3 class="major">Nisl placerat</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+										<a href="#" class="special">Learn more</a>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="{% static 'images/pic06.jpg' %}" alt="" /></a>
+										<h3 class="major">Ante fermentum</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+										<a href="#" class="special">Learn more</a>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
+										<h3 class="major">Fusce consequat</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+										<a href="#" class="special">Learn more</a>
+									</article>
+								</section>
+								<ul class="actions">
+									<li><a href="#" class="button">Browse All</a></li>
+								</ul>
+							</div>
+						</section>
+
+				</section>
+
+
+
+						<!-- One -->
+							<section id="bookings" class="wrapper spotlight style1">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">Booking</h2>
+										<!--<p>Check Availability</p>-->
+										<form action="{% url 'booking:checkSlots' %}" method="post">
+											{% csrf_token %}
+											<div class="field">
+												<select name="branch">
+														<option>Hyderabad</option>
+														<option>Bangalore</option>
+												</select>
+											</div>
+											<div class="field">
+					            	<div id="embeddingDatePicker"></div>
+										    <input type="hidden" id="selectedDate" name="selectedDate" />
+											</div>
+
+											<input type="submit" value="Check Availability" />
+
+										</form>
+
+									</div>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="gallery" class="wrapper alt spotlight style2">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'images/pic03.jpg' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">Gallery</h2>
+										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+										<a href="#" class="special">View Pics</a>
+									</div>
+								</div>
+							</section>
+
+						<!-- Three -->
+							<!--<section id="three" class="wrapper spotlight style3">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'images/pic03.jpg" alt="" /></a>
+									<div class="content">
+										<h2 class="major">Nullam dignissim</h2>
+										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+										<a href="#" class="special">Learn more</a>
+									</div>
+								</div>
+							</section>-->
+
+						<!-- Four -->
+
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+							<form method="post" action="#">
+								<div class="field">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input type="email" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="4"></textarea>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+							<ul class="contact">
+								<li class="fa-home">
+									Untitled Inc<br />
+									1234 Somewhere Road Suite #2894<br />
+									Nashville, TN 00000-0000
+								</li>
+								<li>
+									<a href="#" onClick="directions()" class="special" style="color:#5b6ba6">Directions</a>
+								</li>
+								<li class="fa-phone">(000) 000-0000</li>
+								<li class="fa-envelope"><a href="#">information@untitled.tld</a></li>
+								<li class="fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+								<li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
+								<li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+			<script src="{% static 'assets/js/bootstrap-datepicker.js' %}" ></script>
+			<script type="text/javascript">
+
+			$(document).ready(function() {
+					$('#embeddingDatePicker').datepicker({
+									autoclose : true,
+									format: 'mm/dd/yyyy'
+							}).on('changeDate', function(e) {
+									$("#selectedDate").val($("#embeddingDatePicker").datepicker('getFormattedDate'));
+							});
+			});
+
+			function directions() {
+				direction_url = "http://www.google.co.in/maps/place/Botanical+Garden/@17.4567309,78.3587061,17z/data=!3m1!4b1!4m5!3m4!1s0x3bcb93ddedcbbfd5:0x5213026c73736849!8m2!3d17.4567309!4d78.3609001";
+				window.open(direction_url, "_blank");
+			}
+
+			</script>
+	</body>
+</html>
