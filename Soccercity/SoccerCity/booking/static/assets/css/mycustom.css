@@ -1,0 +1,7 @@
+/*added by me*/
+		input[type="checkbox"]:disabled + label:before {
+			background: red;
+			border-color: #ffffff;
+			content: '\f00c';
+			color: #2e3141;
+		}
