@@ -5,6 +5,7 @@ app_name="booking"
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^checkSlots/$', views.checkSlots, name='checkSlots'),
-    url(r'^bookslots/$', views.bookslots, name='bookslots')
+    url(r'^renderslots/$', views.renderSlots, name='renderSlots'),
+    url(r'^bookslots/$', views.bookslots, name='bookslots'),
+    url(r'^confirmation/$', views.confirmBooking, name='confirmBooking')
 ]

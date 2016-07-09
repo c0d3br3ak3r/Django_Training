@@ -1,0 +1,40 @@
+{% extends 'BookingBase.html' %}
+{% block title %} Confirm Booking {% endblock %}
+{% block contentblock %}
+	<h2>Confirm Booking</h2>
+	<form id="confirm" method="POST" action="{% url 'booking:confirmBooking' %}">
+		{% csrf_token %}
+		<table>
+      <tr>
+        <td>Selected Slots : </td>
+        <td>
+          <ul>
+          {% for slot in slots %}
+            <li><input type="hidden" name="slot{{forloop.counter}}" value="{{slot}}" /> {{slot}}</li>
+          {% endfor %}
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Name* : </td>
+        <td><input type="text" name="name" /></td>
+      </tr>
+      <tr>
+        <td>Mobile* : </td>
+        <td><input type="text" name="mobile" /></td>
+      </tr>
+      <tr>
+        <td>Email : </td>
+        <td><input type="text" name="email" /></td>
+      </tr>
+      <tr>
+        <td>Captcha*</td>
+        <td><input type="text" name="captcha" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Confirm" class="special"/></td>
+      </tr>
+    </table>
+	</form>
+	{% endblock %}

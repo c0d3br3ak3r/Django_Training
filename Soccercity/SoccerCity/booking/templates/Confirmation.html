@@ -1,0 +1,14 @@
+{% extends 'BookingBase.html' %}
+{% block title %} Confirmation {% endblock %}
+{% block contentblock %}
+<h2>Confirmation</h2>
+  <p>Booking Successful. Meet you on the turf !</p>
+  <p>Booking Id : <b>{{booking_details.BookingId}}</b></p>
+  <blockquote>
+    Details :<br/>
+    {{ booking_details.Name }}<br/>
+    {{ booking_details.Phno }}<br/>
+    Slots: <b>{{ booking_details.slots }}</b>
+  </blockquote>
+<center><a class="special" href="{% url 'detail:index' %}">Go Home</a></center>
+{% endblock %}

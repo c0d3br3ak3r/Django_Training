@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+
+{% load staticfiles %}
+{% load booking_extras %}
+
+<html>
+	<head>
+		<title>{% block title %}Soccer City{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/mycustom.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.css" />
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Soccer City</a></h1>
+						<nav>
+							{% block navbutton %}
+              {% endblock %}
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="{% url 'detail:index' %}">Home</a></li>
+								<li><a href="{% url 'detail:index' %}#bookings">Bookings</a></li>
+								<li><a href="{% url 'detail:index' %}#ourservices">Services</a></li>
+								<li><a href="{% url 'detail:index' %}#gallery">Gallery</a></li>
+								<li><a href="{% url 'detail:index' %}#footer">About Us</a></li>
+								<li><a href="##" onClick="directions()">Directions</a></li>
+								<!--<li><a href="#">Sign Up</a></li>-->
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+								<a href="#" class="image"><img src=" {% static 'images/logo.jpg' %}" alt="" /></a>
+							{% block contentblock %}
+              {% endblock %}
+						</div>
+					</section>
+					<!--<div>
+						<div class="inner">
+								<a href="#" class="image"><img src="images/logo.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="inner">
+					<h2 class="major">Book your turf</h2>
+							<p>Select your slots</p>
+							<form method="post" action="#">
+
+							<!--
+								<div class="field">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input type="email" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="4"></textarea>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+
+							</form>
+					</div>-->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+      <script src="{% static 'assets/js/mycustom.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+			<script src="{% static 'assets/js/bootstrap-datepicker.js' %}" ></script>
+			<script type="text/javascript">
+
+			$(document).ready(function() {
+					$('#embeddingDatePicker').datepicker({
+									autoclose : true,
+									format: 'mm/dd/yyyy'
+							}).on('changeDate', function(e) {
+									$("#selectedDate").val($("#embeddingDatePicker").datepicker('getFormattedDate'));
+							});
+			});
+
+			function directions() {
+				direction_url = "http://www.google.co.in/maps/place/Botanical+Garden/@17.4567309,78.3587061,17z/data=!3m1!4b1!4m5!3m4!1s0x3bcb93ddedcbbfd5:0x5213026c73736849!8m2!3d17.4567309!4d78.3609001";
+				window.open(direction_url, "_blank");
+			}
+
+			</script>
+	</body>
+</html>
