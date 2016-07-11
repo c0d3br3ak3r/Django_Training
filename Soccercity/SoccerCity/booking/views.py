@@ -36,7 +36,7 @@ def bookslots(request):
     slots = []
     for key in list(request.POST.keys()):
         if key[:4]=='slot':
-            dt = key[9:]
+            dt = key[8:]
             dt_date = datetime.datetime.strptime(dt, "%d%m%y")
             test = str(dt_date.strftime("%d %B %y - %a"))
             test += " " + key[4:8]
